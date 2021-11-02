@@ -14,7 +14,7 @@ class _ActionMenuState extends State<ActionMenu> {
       body: Container(
         constraints: BoxConstraints.tightForFinite(
           width: 1080,
-          height: 500gi,
+          height: 500,
         ),
         padding: EdgeInsets.all(10),
         color: Colors.white,
