@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threat_model/Screens.dart/actionMenu.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,35 +11,48 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     //Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Color(0xff),
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+      backgroundColor: Color(0xfff8EE4AF),
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(30)),
+            color: Colors.white,
+          ),
+          constraints: BoxConstraints.tightForFinite(
+            width: 1000,
+            height: 600,
+          ),
+          padding: EdgeInsets.all(10),
+          child: Column(
             children: <Widget>[
-              SizedBox(height: 200),
-              Icon(
-                Icons.verified_user,
-                size: 80.0,
-                color: Color(0xff14DB92),
+              SizedBox(
+                height: 110,
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Username'),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Password'),
-              ),
-              SizedBox(height: 20,),
-              ElevatedButton(
-                child: const Text('Sign in'),
-                onPressed: () {
-                  
-                },
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 100,),
+                  Icon(
+                    Icons.lock,
+                    color: Colors.green[900],
+                    size: 350,
+                  ),
+                  SizedBox(width: 80,),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      color: Colors.blue,
+                    ),
+                    constraints: BoxConstraints.tightForFinite(
+                      width: 350,
+                      height: 50,
+                    ),
+                  )
+                ],
               )
-            ]));
+            ],
+          ),
+        ),
+      ),
+    );
   }
-
-  buildText(String s) {}
 }
