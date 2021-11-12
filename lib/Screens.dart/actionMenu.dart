@@ -8,6 +8,8 @@ class ActionMenu extends StatefulWidget {
   _ActionMenuState createState() => _ActionMenuState();
 }
 
+// This screen allows user to select between taking a test to viewing the history ?? GUI
+
 class _ActionMenuState extends State<ActionMenu> {
   @override
   Widget build(BuildContext context) {
@@ -15,19 +17,20 @@ class _ActionMenuState extends State<ActionMenu> {
       backgroundColor: Color(0xfff8EE4AF),
       body: Center(
         child: Container(
+          // This is the containter where our buttons are located
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),
             color: Colors.white,
           ),
           constraints: BoxConstraints.tightForFinite(
-            width: 1000,
+            width: 1000, // the size of the containter
             height: 600,
           ),
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
               SizedBox(height: 50),
-              AppBar(
+              AppBar( // the text at the top of our white container
                 title: Text(
                   'Hello Srimathi, Please Select an Action Below',
                   style: TextStyle(
@@ -38,16 +41,21 @@ class _ActionMenuState extends State<ActionMenu> {
                 elevation: 0,
                 backgroundColor: Colors.white,
               ),
-              SizedBox(
+              SizedBox( // for spacing between elements
                 height: 50,
               ),
               Container(
+                // this containter houses our two button to switch between the history and test screen
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
+                      // button to view history
                       onTap: () {
-                        Navigator.push(context,MaterialPageRoute(builder: (context) => ErrorScreen()));
+                        Navigator.push( // in progress: will be to view history
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ErrorScreen()));
                       },
                       child: Container(
                           padding: EdgeInsets.all(80),
@@ -76,8 +84,12 @@ class _ActionMenuState extends State<ActionMenu> {
                       width: 80,
                     ),
                     InkWell(
+                      // button to take a test
                       onTap: () {
-                        Navigator.push(context,MaterialPageRoute(builder: (context) => CurrentProtocols()));
+                        Navigator.push( // changes current Screen to the CurrentProtocols Screen
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CurrentProtocols()));
                       },
                       child: Container(
                         padding: EdgeInsets.all(80),
@@ -88,6 +100,7 @@ class _ActionMenuState extends State<ActionMenu> {
                         child: Column(
                           children: [
                             Icon(
+                              // styling of the button
                               Icons.task,
                               size: 100,
                               color: Color(0xffffffff),

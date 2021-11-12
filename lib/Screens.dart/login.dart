@@ -6,6 +6,10 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
+/*  
+  IN PROGRESS: giGUI for login screen
+*/
+
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ class _LoginState extends State<Login> {
                     size: 350,
                   ),
                   SizedBox(width: 80,),
-                  Container(
+                  Container( // contains username and password fields
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
                       color: Colors.blue,

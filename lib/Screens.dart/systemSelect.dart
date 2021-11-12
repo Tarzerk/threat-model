@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/*
+  It allows the user to select its asset 
+ */
 class SystemSelect extends StatefulWidget {
   @override
   _SystemSelectState createState() => _SystemSelectState();

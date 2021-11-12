@@ -6,6 +6,7 @@ class CurrentProtocols extends StatefulWidget {
 }
 
 class _CurrentProtocolsState extends State<CurrentProtocols> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class _CurrentProtocolsState extends State<CurrentProtocols> {
             borderRadius: BorderRadius.all(Radius.circular(30)),
             color: Colors.white,
           ),
-          constraints: BoxConstraints.tightForFinite(
+          constraints: BoxConstraints.tightForFinite( // containtainer styling for the white card
             width: 1000,
             height: 600,
           ),
@@ -38,7 +39,11 @@ class _CurrentProtocolsState extends State<CurrentProtocols> {
               SizedBox(
                 height: 50,
               ),
-
+              /*
+                IN PROGRESS: 
+                Here is the list of security protocols in a list format
+                they are of type check list and allow the user to select each item as true or false.
+              */
             ],
           ),
         ),

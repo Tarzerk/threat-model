@@ -5,18 +5,20 @@ class ErrorScreen extends StatefulWidget {
   _ErrorScreenState createState() => _ErrorScreenState();
 }
 
+// IN PROGRESS: This will be used when the user gets an error
+
 class _ErrorScreenState extends State<ErrorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: Color(0xfff8EE4AF),
+      backgroundColor: Color(0xfff8EE4AF),
       body: Center(
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),
             color: Colors.white,
           ),
-          constraints: BoxConstraints.tightForFinite(
+          constraints: BoxConstraints.tightForFinite( 
             width: 1000,
             height: 600,
           ),
@@ -38,7 +40,6 @@ class _ErrorScreenState extends State<ErrorScreen> {
               SizedBox(
                 height: 50,
               ),
-              
             ],
           ),
         ),
