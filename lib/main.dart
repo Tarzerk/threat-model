@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:threat_model/Screens.dart/actionMenu.dart';
+import 'package:threat_model/Screens.dart/currentSecurity.dart';
 import 'package:threat_model/Screens.dart/login.dart';
 import 'package:threat_model/Screens.dart/systemSelect.dart';
 import 'package:threat_model/Screens.dart/wait.dart';
-
-
 
 void main() {
   runApp(MyApp());
@@ -18,10 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Threat',
-      home: Login(),  // the home : points to our first screen in the app.
+      home:
+          CurrentProtocols(), // the home : points to our first screen in the app.
     );
   }
 }
+
 /*
   This is the object for user input
  */
