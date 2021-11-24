@@ -79,12 +79,12 @@ var score = CalculateRisk(selections, device, experience);
 
 class _RiskState extends State<Risk> {
   List<String> _texts = [
-    'Install VPN',
-    'Update PC',
-    'Enable Firewall',
-    'Physical Cover',
-    'Use a Password',
-    'Use Biometrics'
+    'Install VPN', // 1
+    'Update PC', // 2
+    'Enable Firewall', // 3
+    'Install Antivirus', //4
+    'Use a Password', //5
+    'Use Biometrics' //6
   ];
 
   bool value = false;
@@ -206,7 +206,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=6pcUEOSpWb0'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -246,7 +246,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=eY_Yww2-Kyw'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -287,7 +287,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=dlBgoVMXIWo'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -328,7 +328,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=rk0WcOT-Z2Y'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -368,7 +368,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=3f0u-vw58A0'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
@@ -408,7 +408,7 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget'),
+                                    'https://www.youtube.com/watch?v=M7v3_eE7We0'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
