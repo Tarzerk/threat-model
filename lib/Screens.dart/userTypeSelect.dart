@@ -5,6 +5,7 @@ import 'package:threat_model/Screens.dart/currentSecurity.dart';
 // how are usernames being stored and stuff??
 import 'package:threat_model/Screens.dart/login.dart';
 import 'package:threat_model/Screens.dart/actionMenu.dart';
+import 'package:threat_model/Screens.dart/systemSelect.dart';
 
 // type st and it'll fill in a stateful widget and type the name of your class
 
@@ -89,7 +90,7 @@ class _UserSelectState extends State<UserSelect> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ActionMenu()));
+                                builder: (context) => SystemSelect()));
                         experience = 0;
                       },
                       // software button
@@ -138,7 +139,7 @@ class _UserSelectState extends State<UserSelect> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ActionMenu()));
+                                builder: (context) => SystemSelect()));
                         experience = 1;
                       },
                       child: Container(
@@ -190,7 +191,7 @@ class _UserSelectState extends State<UserSelect> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ActionMenu()));
+                                builder: (context) => SystemSelect()));
                         experience = 2;
                       },
                       // software button

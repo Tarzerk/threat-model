@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threat_model/Screens.dart/userTypeSelect.dart';
 
 List<bool> selections = [false, false, false, false, false, false];
 
@@ -46,7 +47,12 @@ class _CurrentProtocolsState extends State<CurrentProtocols> {
                         Icons.arrow_forward,
                         color: Colors.white,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserSelect()));
+                      },
                     ),
                   ),
                 ],
@@ -69,12 +75,10 @@ class _CurrentProtocolsState extends State<CurrentProtocols> {
     );
   }
 
+  /*
+    Logic for checkbox
+  */
   Widget buildCheckbox(String title, bool isSelected, int i) => ListTile(
-        // onTap: () {
-        //   setState(() {
-        //     selection = !selection;
-        //   });
-        // },
         leading: Checkbox(
           value: isSelected,
           onChanged: (isSelected) {

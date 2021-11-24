@@ -1,8 +1,12 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 //import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'currentSecurity.dart'; // current security
+import 'userTypeSelect.dart'; //  user types
+import 'systemSelect.dart'; // device type
 import 'package:threat_model/Screens.dart/error.dart';
 //import 'package:threat_model/Screens.dart/checkbox_link_list.dart';
 
@@ -11,13 +15,67 @@ class Risk extends StatefulWidget {
   _RiskState createState() => _RiskState();
 }
 
-var score = 3.141592;
-//String textData = "pls work";
+double getAssetMultiplier(int asset) {
+  switch (asset) {
+    case 0: // the user is testing software
+      return .8;
+    case 1: // the user is testing hardware
+      return 1;
+    case 2: // the user is testing data
+      return 1.3;
+    default:
+      return -1;
+  }
+}
 
-//  Map<String, bool> values = {
-//     'install firewall': true,
-//     'use password generator': false,
-//   };
+double getUserMultiplier(int user) {
+  switch (user) {
+    case 0: // the user is a begineer
+      return .5;
+    case 1: // the user is intermidiate
+      return 1;
+    case 2: // the user is advanced
+      return 1.5;
+    default:
+      return -1;
+  }
+}
+
+double getProtocolWeights(List<bool> selections) {
+  if (selections.length != 6) return -1;
+
+  var weights = {0: 30, 1: 10, 2: 5, 3: 10, 4: 20, 5: 5, 6: 5};
+
+  int temp = 0;
+
+  for (int i = 0; i < selections.length; i++) {
+    if (selections[i]) {
+      temp += weights[i];
+    }
+  }
+
+  return temp.toDouble();
+}
+
+String CalculateRisk(List<bool> selections, int device, int experience) {
+  double userMultiplier = getUserMultiplier(experience);
+  double assetMultipler = getAssetMultiplier(device);
+  double currentSecurityScore = getProtocolWeights(selections);
+
+  double score = (userMultiplier * assetMultipler) + currentSecurityScore;
+
+  print(score);
+
+  if (score > 70) {
+    return "Low Risk";
+  } else if (score > 50) {
+    return "Medium Risk";
+  } else {
+    return "High Risk";
+  }
+}
+
+var score = CalculateRisk(selections, device, experience);
 
 class _RiskState extends State<Risk> {
   List<String> _texts = [
@@ -109,7 +167,7 @@ class _RiskState extends State<Risk> {
                             //  BorderRadius.all(Radius.circular(20))
                           ),
                           child: Column(children: <Widget>[
-                            Text(score.toString(),
+                            Text(score,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,

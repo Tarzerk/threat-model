@@ -6,10 +6,6 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-/*  
-  IN PROGRESS: giGUI for login screen
-*/
-
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
