@@ -92,6 +92,7 @@ class _LoginState extends State<Login> {
                                     const BorderRadius.all(Radius.circular(30)),
                               ),
                               hintText: 'password'),
+                              obscureText: true,
                         ),
                       ),
                       SizedBox(
