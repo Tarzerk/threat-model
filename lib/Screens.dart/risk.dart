@@ -129,14 +129,17 @@ class _RiskState extends State<Risk> {
             children: <Widget>[
               //SizedBox(width: 50),
               AppBar(
-                title: Text(
-                  //***
-                  'Personalized Risk Score & Security Suggestions',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color(0xff005533),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30),
+                title: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    //***
+                    'Personalized Risk Score & Security Suggestions',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xff005533),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                  ),
                 ),
                 elevation: 0,
                 backgroundColor: Colors.white,
@@ -145,10 +148,15 @@ class _RiskState extends State<Risk> {
                 height: 100,
               ),
               Container(
+                  child: Align(
+                alignment: Alignment.center,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    SizedBox(
+                      width: 100,
+                    ),
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -158,11 +166,11 @@ class _RiskState extends State<Risk> {
                                 builder: (context) => ErrorScreen()));
                       },
                       child: Container(
+                          alignment: Alignment.centerLeft,
                           padding: EdgeInsets.all(125),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color(0xff005533),
-
                             //borderRadius:
                             //  BorderRadius.all(Radius.circular(20))
                           ),
@@ -179,7 +187,7 @@ class _RiskState extends State<Risk> {
                           ])),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: 150,
                     ),
 
 //** CHECKBOX LIST */
@@ -433,7 +441,7 @@ class _RiskState extends State<Risk> {
 // INSERT OTHER CHECKBOX HERE
                   ],
                 ),
-              ),
+              )),
             ],
           ),
         ),
