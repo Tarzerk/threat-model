@@ -25,12 +25,14 @@ class _signUpState extends State<signUp> {
   String validateUsername(value) {
     if (value.isEmpty) {
       return "Required";
-    } else if (value.length < 6) {
+    } else if (value.length < 4) {
       return "Username should be at least 4 characters";
     } else if (value.length > 15) {
       return "Username should not exceed 15 characters";
     } else if (containsSpecialChar(value)) {
       return 'The username should not contain a special character';
+    } else if (user.containsKey(value)) {
+      return 'The username is taken';
     } else {
       return null;
     }
