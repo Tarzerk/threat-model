@@ -30,9 +30,10 @@ class _ActionMenuState extends State<ActionMenu> {
           child: Column(
             children: <Widget>[
               SizedBox(height: 50),
-              AppBar( // the text at the top of our white container
+              AppBar(
+                // the text at the top of our white container
                 title: Text(
-                  'Hello Srimathi, Please Select an Action Below',
+                  'Hello fellow user, Please Select an Action Below',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -41,7 +42,8 @@ class _ActionMenuState extends State<ActionMenu> {
                 elevation: 0,
                 backgroundColor: Colors.white,
               ),
-              SizedBox( // for spacing between elements
+              SizedBox(
+                // for spacing between elements
                 height: 50,
               ),
               Container(
@@ -52,7 +54,8 @@ class _ActionMenuState extends State<ActionMenu> {
                     InkWell(
                       // button to view history
                       onTap: () {
-                        Navigator.push( // in progress: will be to view history
+                        Navigator.push(
+                            // in progress: will be to view history
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ErrorScreen()));
@@ -86,7 +89,8 @@ class _ActionMenuState extends State<ActionMenu> {
                     InkWell(
                       // button to take a test
                       onTap: () {
-                        Navigator.push( // changes current Screen to the CurrentProtocols Screen
+                        Navigator.push(
+                            // changes current Screen to the CurrentProtocols Screen
                             context,
                             MaterialPageRoute(
                                 builder: (context) => CurrentProtocols()));

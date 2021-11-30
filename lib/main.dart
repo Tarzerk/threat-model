@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:threat_model/Screens.dart/actionMenu.dart';
 import 'package:threat_model/Screens.dart/currentSecurity.dart';
 import 'package:threat_model/Screens.dart/login.dart';
+import 'package:threat_model/Screens.dart/risk.dart';
+import 'package:threat_model/Screens.dart/signUp.dart';
 import 'package:threat_model/Screens.dart/systemSelect.dart';
 import 'package:threat_model/Screens.dart/wait.dart';
 
@@ -20,14 +22,4 @@ class MyApp extends StatelessWidget {
       home: Login(), // the home : points to our first screen in the app.
     );
   }
-}
-
-/*
-  This is the object for user input
- */
-class Data {
-  int userType = 0; // 0 1 2
-  int assetType = 0; // 0 1 2
-
-  var selection = {}; // 0 - 6
 }
