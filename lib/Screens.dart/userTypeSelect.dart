@@ -39,7 +39,7 @@ class _UserSelectState extends State<UserSelect> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 50),
+              //SizedBox(height: 50),
               AppBar(
                 title: Align(
                   alignment: Alignment.center,
@@ -69,7 +69,7 @@ class _UserSelectState extends State<UserSelect> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         // change color ? ***
-                        color: Colors.teal,
+                        color: Color(0xff005533),
                         fontWeight: FontWeight.bold,
                         fontSize: 25),
                   ),
