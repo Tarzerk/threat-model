@@ -26,6 +26,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
             children: <Widget>[
               SizedBox(height: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 title: Align(
                   alignment: Alignment.center,
                   child: Text(

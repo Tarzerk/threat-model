@@ -47,6 +47,7 @@ class _SystemSelectState extends State<SystemSelect> {
                 backgroundColor: Colors.white,
               ),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 title: Align(
                   alignment: Alignment.center,
                   child: Text(

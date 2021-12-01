@@ -31,9 +31,10 @@ class _ActionMenuState extends State<ActionMenu> {
             children: <Widget>[
               SizedBox(height: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 // the text at the top of our white container
                 title: Text(
-                  'Hello fellow user, Please Select an Action Below',
+                  '                    Hello fellow user, Please Select an Action Below',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

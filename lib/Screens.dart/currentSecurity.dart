@@ -29,6 +29,7 @@ class _CurrentProtocolsState extends State<CurrentProtocols> {
             children: <Widget>[
               SizedBox(height: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 title: Text(
                   ' What Are Your Current Security Protocols?',
                   style: TextStyle(

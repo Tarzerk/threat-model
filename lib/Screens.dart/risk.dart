@@ -129,6 +129,7 @@ class _RiskState extends State<Risk> {
             children: <Widget>[
               //SizedBox(width: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 title: Align(
                   alignment: Alignment.center,
                   child: Text(

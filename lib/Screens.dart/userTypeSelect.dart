@@ -41,6 +41,7 @@ class _UserSelectState extends State<UserSelect> {
             children: <Widget>[
               SizedBox(height: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 title: Align(
                   alignment: Alignment.center,
                   child: Text(
