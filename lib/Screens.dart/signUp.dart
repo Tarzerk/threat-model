@@ -88,6 +88,7 @@ class _signUpState extends State<signUp> {
             children: <Widget>[
               SizedBox(height: 50),
               AppBar(
+                iconTheme: IconThemeData(color: Colors.black),
                 // the text at the top of our white container
                 title: Text(
                   '                    Hello fellow user, use the form below to create a new account',
