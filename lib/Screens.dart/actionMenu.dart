@@ -34,7 +34,7 @@ class _ActionMenuState extends State<ActionMenu> {
                 iconTheme: IconThemeData(color: Colors.black),
                 // the text at the top of our white container
                 title: Text(
-                  '                    Hello fellow user, Please Select an Action Below',
+                  '   Hello fellow user, please select an action below',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

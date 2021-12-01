@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:threat_model/Screens.dart/login.dart';
 //import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'currentSecurity.dart'; // current security
@@ -207,17 +208,15 @@ class _RiskState extends State<Risk> {
                   Padding(
                       padding: EdgeInsets.only(right: 20.0),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
                         child: Icon(
-                          Icons.search,
+                          Icons.meeting_room,
+                          color: Colors.black,
                           size: 26.0,
                         ),
-                      )),
-                  Padding(
-                      padding: EdgeInsets.only(right: 20.0),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Icon(Icons.more_vert),
                       )),
                 ],
               ),
@@ -235,13 +234,7 @@ class _RiskState extends State<Risk> {
                       width: 20,
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                //*** change where this goes */
-                                builder: (context) => ErrorScreen()));
-                      },
+                      onTap: () {},
                       child: Container(
                           alignment: Alignment.centerLeft,
                           padding: EdgeInsets.all(125),
