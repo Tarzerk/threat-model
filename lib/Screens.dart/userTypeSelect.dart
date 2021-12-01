@@ -45,7 +45,7 @@ class _UserSelectState extends State<UserSelect> {
                 title: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Welcome user',
+                    'User Type',
                     // center of the screen???***
                     textAlign: TextAlign.center,
                     style: TextStyle(
