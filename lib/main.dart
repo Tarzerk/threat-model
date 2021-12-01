@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Threat',
-      home: Login(), // the home : points to our first screen in the app.
+      home:
+          CurrentProtocols(), // the home : points to our first screen in the app.
     );
   }
 }

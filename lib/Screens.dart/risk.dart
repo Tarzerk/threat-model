@@ -75,16 +75,19 @@ String CalculateRisk(List<bool> selections, int device, int experience) {
   }
 }
 
+var cColor, sColor;
 var score = CalculateRisk(selections, device, experience);
 
+// 3, 5, 2, 4, 1, 6
+// in order 513426 420315
 class _RiskState extends State<Risk> {
   List<String> _texts = [
-    'Install VPN', // 1
-    'Update PC', // 2
-    'Enable Firewall', // 3
-    'Install Antivirus', //4
-    'Use a Password', //5
-    'Use Biometrics' //6
+    'Install VPN', // 1 -> 3rd
+    'Set up Two - Factor Authentication', // 2 -> 5th
+    'Enable Firewall', // 3 -> 2nd
+    'Install Antivirus', // 4 -> 4th
+    'Use a Password', // 5 -> 1st
+    'Use Biometrics' // 6 -> 6th
   ];
 
   bool value = false;
@@ -94,6 +97,24 @@ class _RiskState extends State<Risk> {
   void initState() {
     super.initState();
     _isChecked = List<bool>.filled(_texts.length, false);
+    if (selections[0] == true) {
+      _isChecked[4] = true;
+    }
+    if (selections[1] == true) {
+      _isChecked[2] = true;
+    }
+    if (selections[2] == true) {
+      _isChecked[0] = true;
+    }
+    if (selections[3] == true) {
+      _isChecked[3] = true;
+    }
+    if (selections[4] == true) {
+      _isChecked[1] = true;
+    }
+    if (selections[5] == true) {
+      _isChecked[5] = true;
+    }
   }
 
   @override
@@ -108,6 +129,44 @@ class _RiskState extends State<Risk> {
         return Colors.blue;
       }
       return Color(0xff05366B);
+    }
+
+    // recalc score if they change their answers***
+    score = CalculateRisk(selections, device, experience);
+
+    // set color of circle
+    if (score == "Low Risk") {
+      //green like neon
+      //color = "0xfff69FF00";
+
+      //eriks -> navy blue
+      cColor = "0xfff005533";
+      sColor = Colors.white;
+
+      //background green:
+      //color = "0xfff8EE4AF";
+
+      //green to match old container:
+      //color = "0xff005533";
+
+      //green like neon
+      //color = "0xfff69FF00";
+    }
+    if (score == "Medium Risk") {
+      //yellow
+      //color = "0xffF9F90C";
+
+      // eriks -> orange
+      cColor = "0xfffFAFF07";
+      sColor = Colors.black;
+    }
+    if (score == "High Risk") {
+      //red
+      //color = "0xffFF0000";
+
+      // eriks -> red/maroon
+      cColor = "0xfffCC3131";
+      sColor = Colors.white;
     }
 
     return Scaffold(
@@ -143,6 +202,23 @@ class _RiskState extends State<Risk> {
                 ),
                 elevation: 0,
                 backgroundColor: Colors.white,
+                actions: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.only(right: 20.0),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.search,
+                          size: 26.0,
+                        ),
+                      )),
+                  Padding(
+                      padding: EdgeInsets.only(right: 20.0),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.more_vert),
+                      )),
+                ],
               ),
               SizedBox(
                 height: 100,
@@ -151,11 +227,11 @@ class _RiskState extends State<Risk> {
                   child: Align(
                 alignment: Alignment.center,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
-                      width: 100,
+                      width: 20,
                     ),
                     InkWell(
                       onTap: () {
@@ -170,7 +246,15 @@ class _RiskState extends State<Risk> {
                           padding: EdgeInsets.all(125),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color(0xff005533),
+                            color: Color(int.parse(cColor)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(int.parse(cColor)),
+                                //color: Colors.black,
+                                blurRadius: 7,
+                                //offset: Offset(4, 8), // Shadow position
+                              ),
+                            ],
                             //borderRadius:
                             //  BorderRadius.all(Radius.circular(20))
                           ),
@@ -178,8 +262,15 @@ class _RiskState extends State<Risk> {
                             Text(score,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: sColor,
                                   fontSize: 25,
+                                  // shadows: <Shadow>[
+                                  //   Shadow(
+                                  //     //offset: Offset(10.0, 10.0),
+                                  //     blurRadius: 3.0,
+                                  //     color: Colors.grey,
+                                  //   ),
+                                  // ]
                                 )),
                             SizedBox(
                               height: 1,
@@ -187,11 +278,12 @@ class _RiskState extends State<Risk> {
                           ])),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 65,
                     ),
 
 //** CHECKBOX LIST */
                     Container(
+                      alignment: Alignment.centerRight,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -202,10 +294,10 @@ class _RiskState extends State<Risk> {
                                 checkColor: Colors.white,
                                 fillColor:
                                     MaterialStateProperty.resolveWith(getColor),
-                                value: _isChecked[0],
+                                value: _isChecked[4],
                                 onChanged: (val) {
                                   setState(() {
-                                    _isChecked[0] = val;
+                                    _isChecked[4] = val;
                                   });
                                 },
                               ),
@@ -214,13 +306,13 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://www.youtube.com/watch?v=6pcUEOSpWb0'),
+                                    'https://www.youtube.com/watch?v=3f0u-vw58A0'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                     color: Colors.white,
                                   ),
-                                  child: Text(_texts[0],
+                                  child: Text(_texts[4],
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff05366B),
@@ -235,47 +327,6 @@ class _RiskState extends State<Risk> {
                           ),
 
                           //*** NUMBER 2 */
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Checkbox(
-                                checkColor: Colors.white,
-                                fillColor:
-                                    MaterialStateProperty.resolveWith(getColor),
-                                value: _isChecked[1],
-                                onChanged: (val) {
-                                  setState(() {
-                                    _isChecked[1] = val;
-                                  });
-                                },
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              InkWell(
-                                onTap: () => launch(
-                                    'https://www.youtube.com/watch?v=eY_Yww2-Kyw'),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.white,
-                                  ),
-                                  child: Text(_texts[1],
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff05366B),
-                                        fontSize: 25,
-                                      )),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-
-                          //*** number 3 */
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -302,6 +353,46 @@ class _RiskState extends State<Risk> {
                                     color: Colors.white,
                                   ),
                                   child: Text(_texts[2],
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xff05366B),
+                                        fontSize: 25,
+                                      )),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+
+                          //*** number 3 */
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Checkbox(
+                                checkColor: Colors.white,
+                                fillColor:
+                                    MaterialStateProperty.resolveWith(getColor),
+                                value: _isChecked[0],
+                                onChanged: (val) {
+                                  setState(() {
+                                    _isChecked[0] = val;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              InkWell(
+                                onTap: () => launch(
+                                    'https://www.youtube.com/watch?v=6pcUEOSpWb0'),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    color: Colors.white,
+                                  ),
+                                  child: Text(_texts[0],
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff05366B),
@@ -364,10 +455,10 @@ class _RiskState extends State<Risk> {
                                 checkColor: Colors.white,
                                 fillColor:
                                     MaterialStateProperty.resolveWith(getColor),
-                                value: _isChecked[4],
+                                value: _isChecked[1],
                                 onChanged: (val) {
                                   setState(() {
-                                    _isChecked[4] = val;
+                                    _isChecked[1] = val;
                                   });
                                 },
                               ),
@@ -376,13 +467,13 @@ class _RiskState extends State<Risk> {
                               ),
                               InkWell(
                                 onTap: () => launch(
-                                    'https://www.youtube.com/watch?v=3f0u-vw58A0'),
+                                    'https://www.youtube.com/watch?v=4umI2BDQURk'),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                     color: Colors.white,
                                   ),
-                                  child: Text(_texts[4],
+                                  child: Text(_texts[1],
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff05366B),
@@ -437,8 +528,11 @@ class _RiskState extends State<Risk> {
                           ),
                         ],
                       ),
-                    )
+                    ),
 // INSERT OTHER CHECKBOX HERE
+                    SizedBox(
+                      width: 70,
+                    ),
                   ],
                 ),
               )),
