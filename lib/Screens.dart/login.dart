@@ -60,9 +60,9 @@ class _LoginState extends State<Login> {
                     child: Column(
                       children: [
                         Text(
-                          'Threat Model Evaluator',
+                          'EZSafe',
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 40,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                         ),
